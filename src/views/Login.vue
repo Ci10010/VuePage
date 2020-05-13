@@ -66,10 +66,11 @@
                 password: this.Form.password
               }
             }).then(result=>{
-              console.log(result.data);
+              console.log(result);
               if(result.data.status===0){
-                this.$router.push('/profile');
                 this.$message({showClose: true,message: '登录成功!',type: 'success'});
+                window.sessionStorage.setItem('token', result.data.token);
+                this.$router.push('/profile');
               }else if(result.data.status===-1){
                 this.$message({ showClose: true,message: '服务器繁忙,请稍等重试!',type: 'error'});
               }else{

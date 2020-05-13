@@ -1,12 +1,19 @@
 <template>
   <div>
-    <h1>登陆成功</h1>
+    <h1>Profile</h1>
+    <button @click="logout">退出登录</button>
   </div>
 </template>
 
 <script>
   export default {
-    name: "Profile"
+    name: "Profile",
+    methods:{
+      logout(){
+        window.sessionStorage.clear();
+        this.$router.push('/login');
+      }
+    }
   }
 </script>
 

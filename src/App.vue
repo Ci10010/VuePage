@@ -9,16 +9,5 @@
 </template>
 
 <style>
-  .el-message--success{
-    background-color: #67c23a !important;
-  }
-  .el-message--warning{
-    background-color: #e6a23c !important;
-  }
-  .el-message--error{
-    background-color: #f56c6c !important;
-  }
-  .el-message>p,i{
-    color: #FFFFFF !important;
-  }
+  @import "assets/CSS/elementUI.css";
 </style>
