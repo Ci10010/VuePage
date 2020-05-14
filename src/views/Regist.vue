@@ -36,7 +36,7 @@
 </template>
 
 <script>
-  import {request} from '../../network/request'
+  import {request} from '../network/request'
   export default {
     name: "Login",
     data(){
@@ -49,7 +49,7 @@
           verifyCode: ''
         },
         codeText:'获取验证码',
-        disabledCodeBtn: true
+        disabledCodeBtn: true,
       }
     },
     methods: {
@@ -109,8 +109,13 @@
       },
       async sendVerifycode(){
         if(this.Form.email.length>=10){
-          this.countDown(60)
+          this.countDown(10)
           // 此处填写验证码请求
+          request({
+            url: '/api/regist/verifycode',
+            method: 'post',
+            data: {email: this.Form.email}
+          })
         }else{
           this.$message({showClose: true, message: '请输入合法的电子邮件地址！', type: 'warning'});
           this.Form.verifyCode = '';
@@ -118,12 +123,13 @@
       },
       countDown(time) {
         if(time === 0) {
-          return this.disabledCodeBtn = true;
-        }else{
-          this.disabledCodeBtn = false;
-          this.codeText = '重新发送(' + time + ')';
-          time --;
+          this.codeText = '重新发送';
+          this.disabledCodeBtn = true;
+          return;
         }
+        this.disabledCodeBtn = false;
+        this.codeText = '重新发送(' + time + ')';
+        time --;
         setTimeout(() => {
           this.countDown(time);
         }, 1000)

@@ -34,7 +34,7 @@
   </div>
 </template>
 <script>
-  import {request} from '../../network/request'
+  import {request} from '../network/request'
   import Sidentify from "../components/Sidentify";
   export default {
     name: "Login",
