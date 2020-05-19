@@ -11,8 +11,10 @@
     "core-js": "^3.6.4",
     "element-ui": "^2.13.1",
     "identify": "^0.1.5",
+    "leancloud-storage": "^4.5.3",
     "less": "^3.11.1",
     "less-loader": "^6.1.0",
+    "valine": "^1.4.14",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "vuex": "^3.1.3"

@@ -11,18 +11,21 @@
 
         <div class="input-box">
           <label class="input-box-label">用户名</label>
-          <input type="text" class="textBox" v-model="Form.username">
+          <input type="text" class="textBox" :class="{tipStyle:usIsLegal}" v-model="Form.username">
+          <div :class="{errTip:usIsLegal}"><div v-show="usIsLegal">▲</div><span v-show="usIsLegal">此选项不可为空</span></div>
 
           <label class="input-box-label">密码</label>
-          <input type="password" class="textBox" v-model="Form.password">
+          <input type="password" class="textBox" :class="{tipStyle:psIsLegal}" v-model="Form.password">
+          <div :class="{errTip:psIsLegal}"><div v-show="psIsLegal">▲</div><span v-show="psIsLegal">此选项不可为空</span></div>
 
           <label class="input-box-label" id="Sidentify-span">验证码</label>
           <div id="verifyInput">
-            <input type="text" class="textBox" v-model="Form.verifyCode">
+            <input type="text" class="textBox" :class="{tipStyle:vsIsLegal}" v-model="Form.verifyCode">
           </div>
           <div @click="refreshCode" id="Sidentify">
             <Sidentify :identifyCode="identifyCode"></Sidentify>
           </div>
+          <div :class="{errTip:vsIsLegal}"><div v-show="vsIsLegal">▲</div><span v-show="vsIsLegal">此选项不可为空</span></div>
           <button class="loginBtn" @click="login" :plain="true">登录</button>
         </div>
         <div class="toLogin">
@@ -48,6 +51,9 @@
         },
         identifyCode: '',
         identifyCodes: '1234567890',
+        usIsLegal: false,
+        psIsLegal: false,
+        vsIsLegal: false,
       }
     },
     mounted() {
@@ -55,7 +61,7 @@
       this.makeCode(this.identifyCodes, 4);
     },
     methods:{
-      login(){
+      async login(){
         if(this.Form.username&&this.Form.password&&this.Form.verifyCode){
           if(this.Form.verifyCode === this.identifyCode){
             request({
@@ -84,7 +90,24 @@
             this.refreshCode()
           }
         }else{
-          this.$message({showClose: true,message: '登录信息尚未填写完整,请检查后重试!',type: 'warning'});
+          if(!this.Form.username){
+            this.usIsLegal = true;
+            setTimeout(()=>{
+              this.usIsLegal = false;
+            },3000);
+          }
+          else if(!this.Form.password){
+            this.psIsLegal = true;
+            setTimeout(()=>{
+              this.psIsLegal = false;
+            },3000)
+          }
+          else if(!this.Form.verifyCode){
+            this.vsIsLegal = true;
+            setTimeout(()=>{
+              this.vsIsLegal = false;
+            },3000)}
+          // this.$message({showClose: true,message: '登录信息尚未填写完整,请检查后重试!',type: 'warning'});
         }
       },
       // 验证码区域
@@ -142,6 +165,30 @@
         font-size: 14px;
         color: #363636;
       }
+      // dev ----------------------------
+      .tipStyle{
+        border: 1px solid rgb(255,76,76) !important;
+      }
+      .errTip{
+        position: absolute;
+        background-color: rgb(255,76,76);
+        border-radius: 3px;
+        padding: 6px 12px;
+        color: #FFFFFF;
+        font-size: 12px;
+        margin-top: -7px;
+        transition: .1s cubic-bezier(.645,.045,.355,1);
+        box-shadow: -1px 2px 1px rgba(0,0,0,.1);
+        div{
+          position: absolute;
+          top: -19px;
+          color: rgb(255,76,76);
+          display: inline-block;
+          font-size: 30px;
+          z-index: -1;
+        }
+      }
+      // dev ----------------------------
       #verifyInput{
         width: 60%;
         display: inline-block;
@@ -188,7 +235,7 @@
         cursor: pointer;
         outline: none;
         &:hover{
-          background-color: #269f42;
+          background-color: #5FB878;;
           background-image: linear-gradient(-180deg,#2fcb53,#269f42 90%);
           background-position: -.5em;
         }
