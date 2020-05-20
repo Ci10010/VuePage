@@ -34,7 +34,7 @@
 <style scoped lang="less">
   #MainPage{
     position: relative;
-    width: 1312px;
+    width: 1320px;
     margin: 30px auto;
     /*border: 1px solid #5FB878;*/
     .container{

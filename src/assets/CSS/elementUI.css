@@ -7,6 +7,6 @@
 .el-message--error{
   background-color: #f56c6c !important;
 }
-.el-message>p,i{
-  color: #FFFFFF !important;
-}
+/*.el-message>p,i{*/
+/*  color: #FFFFFF;*/
+/*}*/

@@ -2,13 +2,13 @@
   <div class="author">
     <div class="avatar">
 <!--      <img :src="avatar" alt="avatar">-->
-      <img src="../../assets/img/avatar.png" alt="avatar">
+      <a href="/"><img src="../../assets/img/avatar.png" alt="avatar"></a>
     </div>
     <div class="info">
       <p class="nickname">{{ nickname }}</p>
       <p class="description">{{ description }}</p>
       <div class="location">
-        <img src="../../assets/img/location.png" alt="">
+        <i class="fa fa-map-marker"></i>
         <span>{{ location }}</span>
       </div>
       <div class="summary">
@@ -25,9 +25,9 @@
           <a href="/label">{{ articleLab }}</a>
         </div>
         <div class="icon">
-          <a :href="'http://wpa.qq.com/msgrd?v=3&uin='+QQ+'&site=qq&menu=yes'"><img src="../../assets/img/QQ.png" alt="icon"></a>
-          <a :href="'https://github.com/'+GitHub"><img src="../../assets/img/GitHub.png" alt="icon"></a>
-          <a :href="'mailto:'+Email"><img src="../../assets/img/Email.png" alt="icon"></a>
+          <a :href="'http://wpa.qq.com/msgrd?v=3&uin='+QQ+'&site=qq&menu=yes'"><i class="fa fa-qq" aria-hidden="true"></i></a>
+          <a :href="'https://github.com/'+GitHub"><i class="fa fa-github github" aria-hidden="true"></i></a>
+          <a :href="'mailto:'+Email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -88,6 +88,7 @@
       position: relative;
       /*border: 1px solid salmon;*/
       text-align: center;
+      color: #565a5f;
       .nickname{
         font-size: 18px;
         margin-top: 10px;
@@ -101,9 +102,9 @@
         color: #7a7a7a !important;
         display: flex;
         justify-content: center;
-        img{
-          width: 16px;
-          margin-right: 1px;
+        i{
+          font-size: 16px;
+          margin-right: 3px;
         }
       }
       .summary{
@@ -118,17 +119,28 @@
           a{
             font-size: 22px;
             text-decoration: none;
-            color: #000;
+            color: #565a5f;
+            &:hover{
+              color: #000000;
+            }
           }
         }
-      .icon{
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-around;
-        img{
-          width: 15px;
+        .icon{
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-around;
+          i{
+            font-size: 15px;
+            color: #565a5f;
+            &:hover{
+              color: #333333;
+            }
+          }
+          .github{
+            font-size: 18px !important;
+            padding-top: 2px;
+          }
         }
-      }
       }
     }
   }

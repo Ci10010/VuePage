@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import Article from "../Content/Article";
+  import Home from "../Content/Home";
   import Category from "../Content/Category";
   import Statistic from "../Content/Statistic";
   import Message from "../Content/Message"
@@ -13,7 +13,7 @@
   export default {
     name: "Main",
     components:{
-      Article,Category,Statistic,Message,Profile
+      Home,Category,Statistic,Message,Profile
     }
   }
 </script>

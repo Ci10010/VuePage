@@ -2,7 +2,7 @@
   <div id="header">
     <div class="container">
       <div class="menuList">
-        <router-link to="/article" tag="span">首页</router-link>
+        <router-link to="/home" tag="span">首页</router-link>
         <router-link to="/statistic" tag="span">归档</router-link>
         <router-link to="/category" tag="span">分类</router-link>
         <router-link to="/gallery" tag="span">图册</router-link>
@@ -33,7 +33,7 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     /*border: 1px sienna solid;*/
     .container {
-      width: 1312px;
+      width: 1320px;
       margin: 0 auto;
       height: 100%;
       /*border: 1px slateblue solid;*/
@@ -47,6 +47,9 @@
           font-weight: 600;
           padding: 15px;
           cursor: pointer;
+          &:hover{
+            background-color: #fafafa;
+          }
        }
       }
       .loginBtn{
