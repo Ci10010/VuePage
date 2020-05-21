@@ -12,6 +12,6 @@
 
 <style scoped lang="less">
   .statistic{
-    h4{color: #333}
+    /*h4{color: #333}*/
   }
 </style>

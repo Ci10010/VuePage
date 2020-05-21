@@ -41,7 +41,7 @@
     data(){
       return{
         avatar: '../../assets/img/avatar.png',
-        nickname: 'C',
+        nickname: 'Lee',
         description: '一切皆源于兴趣!',
         location: '陕西·西安',
         articleNum: '9',
@@ -82,6 +82,10 @@
         width: 128px;
         border-radius: 50%;
         box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.1);
+        &:hover{
+          box-shadow: 0 2px 5px rgba(0,0,0,0.4), 0 0 1px rgba(0,0,0,0.4);
+          transition: all .5s;
+        }
       }
     }
     .info{
@@ -126,14 +130,16 @@
           }
         }
         .icon{
-          margin-top: 20px;
+          margin-top: 13px;
           display: flex;
           justify-content: space-around;
           i{
             font-size: 15px;
             color: #565a5f;
+            transition: all .3s;
             &:hover{
               color: #333333;
+              transform: rotate(360deg);
             }
           }
           .github{

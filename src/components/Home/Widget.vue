@@ -22,14 +22,15 @@
 
 <style scoped lang="less">
  #widget{
-   padding: 10px;
+   padding: 10px 5px 10px 10px;
+   /*border: 1px solid slateblue;*/
    *{
-     margin-bottom: 15px;
+     margin-bottom: 10px;
      position: relative;
      padding: 15px;
      background-color: #ffffff;
      border-radius: 3px;
-     box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
    }
  }
 </style>
