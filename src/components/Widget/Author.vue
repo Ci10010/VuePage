@@ -42,7 +42,7 @@
       return{
         avatar: '../../assets/img/avatar.png',
         nickname: 'Lee',
-        description: '一切皆源于兴趣!',
+        description: '这是个人描述.',
         location: '陕西·西安',
         articleNum: '9',
         articleCat: '8',
@@ -109,6 +109,7 @@
         i{
           font-size: 16px;
           margin-right: 3px;
+          color: #ff3860;
         }
       }
       .summary{

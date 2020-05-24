@@ -4,20 +4,20 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
+  // {
+  //   path: '/',
+  //   name: 'Index',
+  //   component: () => import('../views/Index'),
+  //   redirect: '/index',
+  // },
   {
     path: '/',
-    name: 'Index',
     component: () => import('../views/Index'),
-    redirect: '/home',
-  },
-  {
-    path: '/index',
-    component: () => import('../views/Index'),
-    redirect: '/home',
+    redirect: '/index',
     children:[
       {
-      path: '/home',
-      component: () => import('../components/Content/Home')
+      path: '/index',
+      component: () => import('../components/Content/Article')
       },
       {
       path: '/statistic',

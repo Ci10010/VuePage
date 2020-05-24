@@ -2,7 +2,7 @@
   <div id="header">
     <div class="container">
       <div class="menuList">
-        <router-link to="/home" tag="span">首页</router-link>
+        <router-link to="/index" tag="span">首页</router-link>
         <router-link to="/statistic" tag="span">归档</router-link>
         <router-link to="/category" tag="span">分类</router-link>
         <router-link to="/gallery" tag="span">图册</router-link>

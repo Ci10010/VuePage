@@ -19,10 +19,10 @@
 </template>
 
 <script>
-  import Header from "../components/Home/Header";
-  import Widget from "../components/Home/Widget";
-  import Main from "../components/Home/Main";
-  import Footer from "../components/Home/Footer";
+  import Header from "../components/Layout/Header";
+  import Widget from "../components/Layout/Widget";
+  import Main from "../components/Layout/Main";
+  import Footer from "../components/Layout/Footer";
   export default {
     name: "Home",
     components:{
