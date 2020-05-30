@@ -39,7 +39,8 @@
         display: block;
         padding: 0.5em 0.75em;
         &:hover{
-          background-color: rgb(245,245,245);
+          background-color: #f2f8fd;
+          border-radius: 3px;
         }
       }
     }

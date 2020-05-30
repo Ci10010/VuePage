@@ -2,7 +2,7 @@
   <div id="login">
     <div class="logo-container">
       <div class="logo">
-        <a href="#"><img src="../assets/LOGO.png"/></a>
+        <a href="#"><img src="../../assets/LOGO.png"/></a>
       </div>
     </div>
     <div class="login-main">
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-  import {request} from '../network/request'
+  import {request} from '../../network/request'
   export default {
     name: "Login",
     data(){

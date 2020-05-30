@@ -2,6 +2,9 @@
   <div>
     <Header></Header>
     <!--MainPage-->
+<!--    <div id="headerImg">-->
+<!--      <img src="../assets/img/bg-title.png" alt=""/>-->
+<!--    </div>-->
     <div id="MainPage">
       <div class="container">
         <div class="widget">
@@ -19,10 +22,10 @@
 </template>
 
 <script>
-  import Header from "../components/Layout/Header";
-  import Widget from "../components/Layout/Widget";
-  import Main from "../components/Layout/Main";
-  import Footer from "../components/Layout/Footer";
+  import Header from "../../components/Client/Layout/Header";
+  import Widget from "../../components/Client/Layout/Widget";
+  import Main from "../../components/Client/Layout/Main";
+  import Footer from "../../components/Client/Layout/Footer";
   export default {
     name: "Home",
     components:{
@@ -32,10 +35,21 @@
 </script>
 
 <style scoped lang="less">
+  /*#headerImg{*/
+  /*  position: relative;*/
+  /*  display: block;*/
+  /*  !*border: 1px seagreen solid;*!*/
+  /*  width: 1360px;*/
+  /*  margin: 0 auto;*/
+  /*  img{*/
+  /*    z-index: 2;*/
+  /*    width: 100%;*/
+  /*  }*/
+  /*}*/
   #MainPage{
     position: relative;
     width: 1360px;
-    margin: 30px auto;
+    margin: 25px auto;
     /*border: 1px solid #5FB878;*/
     .container{
       position: relative;

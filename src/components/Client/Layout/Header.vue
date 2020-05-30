@@ -2,13 +2,13 @@
   <div id="header">
     <div class="container">
       <div class="menuList">
-        <router-link to="/index" tag="span">首页</router-link>
-        <router-link to="/statistic" tag="span">归档</router-link>
-        <router-link to="/category" tag="span">分类</router-link>
-        <router-link to="/gallery" tag="span">图册</router-link>
-        <router-link to="/share" tag="span">分享</router-link>
-        <router-link to="/message" tag="span">留言</router-link>
-        <router-link to="/profile" tag="span">关于</router-link>
+          <router-link to="/index" tag="span">首页</router-link>
+          <router-link to="/statistic" tag="span">归档</router-link>
+          <router-link to="/category" tag="span">分类</router-link>
+          <router-link to="/gallery" tag="span">图册</router-link>
+          <router-link to="/share" tag="span">分享</router-link>
+          <router-link to="/message" tag="span">留言</router-link>
+          <router-link to="/profile" tag="span">关于</router-link>
       </div>
       <div class="loginBtn" v-show="false">
         <router-link to="/login" tag="span">登录</router-link>
@@ -17,7 +17,7 @@
       </div>
       <div class="online" v-show="true">
         <i class="fa fa-bell"></i>
-        <a href="#"><img alt="Avatar.jpg" src="../../assets/img/avatar.jpg" @mouseenter="mouseenter" @mouseleave="mouseleave"/></a>
+        <a href="#"><img alt="Avatar.jpg" src="../../../assets/img/avatar.jpg" @mouseenter="mouseenter" @mouseleave="mouseleave"/></a>
         <div class="setting" v-show="isLogin">
           <div>
             <i class="fa fa-user" aria-hidden="true"></i>
@@ -61,7 +61,7 @@
     position: relative;
     height: 45px;
     background-color: #ffffff;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: 1px 1px rgba(0,0,0,0.05);
     /*border: 1px sienna solid;*/
     .container {
       width: 1360px;
@@ -79,7 +79,9 @@
           padding: 15px;
           cursor: pointer;
           &:hover{
-            background-color: #fafafa;
+            /*background-color: #f2f8fd;*/
+            /*border-bottom: 2px solid seagreen;*/
+            color: #333333;
           }
        }
       }

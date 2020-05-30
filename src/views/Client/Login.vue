@@ -2,7 +2,7 @@
   <div id="login">
     <div class="logo-container">
         <div class="logo">
-          <a href="#"><img src="../assets/LOGO.png"/></a>
+          <a href="#"><img src="../../assets/LOGO.png"/></a>
         </div>
     </div>
     <div class="login-main">
@@ -37,8 +37,8 @@
   </div>
 </template>
 <script>
-  import {request} from '../network/request'
-  import Sidentify from "../components/Sidentify";
+  import {request} from '../../network/request'
+  import Sidentify from "../../components/Sidentify";
   export default {
     name: "Login",
     components: {Sidentify},

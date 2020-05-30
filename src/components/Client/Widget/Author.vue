@@ -2,7 +2,7 @@
   <div class="author">
     <div class="avatar">
 <!--      <img :src="avatar" alt="avatar">-->
-      <a href="/"><img src="../../assets/img/avatar.png" alt="avatar"></a>
+      <a href="/"><img src="../../../assets/img/avatar.png" alt="avatar"></a>
     </div>
     <div class="info">
       <p class="nickname">{{ nickname }}</p>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import {request} from "../../network/request";
+  import {request} from "../../../network/request";
   export default {
     name: "Author",
     data(){

@@ -30,7 +30,6 @@
 <style scoped lang="less">
   .category {
     .content{
-      /*padding: 5px 20px 10px 10px;*/
       margin-top: 8px;
       a{
         display: block;
@@ -39,7 +38,7 @@
         font-weight: 500;
         padding: 8px 15px;
         &:hover{
-          background-color: rgb(245,245,245);
+          background-color: #f2f8fd;
         }
         .counter{
           /*margin-left: 10px;*/
