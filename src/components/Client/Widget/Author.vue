@@ -2,7 +2,7 @@
   <div class="author">
     <div class="avatar">
 <!--      <img :src="avatar" alt="avatar">-->
-      <a href="/"><img src="../../../assets/img/avatar.png" alt="avatar"></a>
+      <a href="/"><img :src="avatar" alt="avatar"></a>
     </div>
     <div class="info">
       <p class="nickname">{{ nickname }}</p>
@@ -41,29 +41,33 @@
     data(){
       return{
         avatar: '../../assets/img/avatar.png',
-        nickname: 'Lee',
-        description: '这是个人描述.',
-        location: '陕西·西安',
+        nickname: '',
+        description: '.',
+        location: '',
         articleNum: '9',
         articleCat: '8',
         articleLab: '10',
-        QQ: '83974934',
-        GitHub: 'Ci10010',
-        Email: '83974934@qq.com'
+        QQ: '',
+        GitHub: '',
+        Email: ''
       }
     },
     // 此处发送axios请求
     created() {
       request({
-        url: '',
-        method: '',
-        data:{
-
-        }
+        url: '/api/SelectUserInfo',
+        method: 'get'
       }).then(result=>{
-
+        // console.log(result.data.result[0].AvatarURL);
+        this.avatar = result.data.result[0].AvatarURL;
+        this.nickname = result.data.result[0].Nickname;
+        this.description = result.data.result[0].Description;
+        this.location = result.data.result[0].Location;
+        this.QQ = result.data.result[0].QQ;
+        this.GitHub = result.data.result[0].GitHub;
+        this.Email = result.data.result[0].Email;
       }).catch(error=>{
-
+        console.log(error);
       })
     }
   }

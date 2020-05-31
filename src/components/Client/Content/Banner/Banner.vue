@@ -2,45 +2,31 @@
   <div id="banner">
     <el-carousel :interval="5000" arrow="hover" height="280px">
       <el-carousel-item v-for="(image,index) in images" :key="index">
-        <a :href="image.href"><img :src="image.src" :alt="image.alt"/></a>
+        <a :href="image.Href"><img :src="image.URL" :alt="image.Alt"/></a>
       </el-carousel-item>
     </el-carousel>
   </div>
 </template>
 
 <script>
+  import {request} from "../../../../network/request";
+
   export default {
     name: "Banner",
     data(){
       return{
-        images:[
-          {
-            src: 'https://dummyimage.com/1130x300/7B68EE/fff.png',
-            href: '',
-            alt: ''
-          },
-          {
-            src: 'https://dummyimage.com/1130x300/4682B4/fff.png',
-            href: '',
-            alt: ''
-          },
-          {
-            src: 'https://dummyimage.com/1130x300/90EE90/fff.png',
-            href: '',
-            alt: ''
-          },
-          {
-            src: 'https://dummyimage.com/1130x300/FF8C00/fff.png',
-            href: '',
-            alt: ''
-          },
-          {
-            src: 'https://dummyimage.com/1130x300/FF4500/fff.png',
-            href: '',
-            alt: ''
-          }
-        ]
+        images:[]
       }
+    },
+    created() {
+      request({
+        url: '/api/getBanners',
+        method: 'get'
+      }).then(result=>{
+        this.images = result.data.result;
+      }).catch(error=>{
+        console.log(error);
+      })
     }
   }
 </script>

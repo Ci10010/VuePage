@@ -1,38 +1,32 @@
 <template>
   <div>
     <div id="hotTags" v-for="(tag,index) in tags" :key="index">
-      <a :href="tag.href" class="commonStyle">{{ tag.name }}</a>
+      <a :href="tag.Href" class="commonStyle">{{ tag.Name }}</a>
     </div>
   </div>
 </template>
 
 <script>
+  import {request} from "../../../network/request";
+
   export default {
     name: "HotTags",
     data(){
       return{
-        tags:[
-          {name: '视频教程', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'Linux', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'Markdown', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'MySQL', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'MySQL', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'Git', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'Git', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: '视频教程', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: '视频教程', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'Markdown', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'MySQL', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'MySQL', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'Git', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: 'Git', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: '视频教程', href: 'https://www.geekinns.cn/tags/HTML/'},
-          {name: '视频教程', href: 'https://www.geekinns.cn/tags/HTML/'},
-        ],
-        // backgroundColor:['#23d160','#ffdd57','#ff3860'],
-        // bcolor: backgroundColor[Math.floor(Math.random() * backgroundColor.length)]
+        tags:[]
       }
     },
+    created() {
+      request({
+        url: '/api/getHotTags',
+        method: 'get'
+      }).then(result=>{
+        this.tags = result.data.result;
+        console.log(this.articles);
+      }).catch(error=>{
+        console.log(error);
+      })
+    }
   }
 </script>
 
