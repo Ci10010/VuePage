@@ -15,9 +15,9 @@
 <style scoped lang="less">
   #header{
     width: 100%;
-    height: 55px;
-    background-color: #f6f6f6;
-    color: #555;
+    /*height: 45px;*/
+    background-color: #303133;
+    color: #ffffff;
     .title{
       position: relative;
       left: 50%;
@@ -25,7 +25,7 @@
       display: inline-block;
       span{
         font-size: 30px;
-        line-height: 55px;
+        line-height: 50px;
       }
     }
   }

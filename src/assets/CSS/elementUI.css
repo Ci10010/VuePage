@@ -1,3 +1,6 @@
+.el-message>p,i{
+  color: #ffffff !important;
+}
 .el-message--success{
   background-color: #67c23a !important;
 }
@@ -7,6 +10,10 @@
 .el-message--error{
   background-color: #f56c6c !important;
 }
-/*.el-message>p,i{*/
-/*  color: #FFFFFF;*/
-/*}*/
+
+.el-tag,.button-new-tag{
+  margin: 10px 10px 10px 0;
+}
+.input-new-tag{
+  margin: 10px 0;
+}

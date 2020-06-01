@@ -76,7 +76,11 @@
     .label{
       margin: 7px 0;
       div{margin: 2px 0}
-      i{font-size: 14px;color: #666666;margin-right: 5px}
+      i{
+        font-size: 14px;
+        color: #666666 !important;
+        margin-right: 5px
+      }
       a{text-decoration: none;
         color: #565a5f;
       }
