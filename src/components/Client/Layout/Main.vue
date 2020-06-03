@@ -2,10 +2,10 @@
   <div id="content">
     <!--Index布局-->
     <div v-if="this.$route.path==='/index'">
-      <div v-show="true">
+      <div v-if="true">
         <Banner></Banner>
       </div>
-      <div v-show="true">
+      <div v-if="true">
         <HotTags></HotTags>
       </div>
       <Article></Article>
@@ -41,13 +41,13 @@
       </div>
     </div>
 
-    <!--Share-->
-    <div v-if="this.$route.path==='/share'">
+    <!--Bookmark-->
+    <div v-if="this.$route.path==='/bookmark'">
       <div>
-        <ShareBanner></ShareBanner>
+        <BookmarkBanner></BookmarkBanner>
       </div>
       <div class="baseStyle">
-        <Share></Share>
+        <Bookmark></Bookmark>
       </div>
     </div>
     <!--Message-->
@@ -69,7 +69,13 @@
         <Profile></Profile>
       </div>
     </div>
-
+    <!--ArticleShow-->
+    <div v-if="this.$route.path==='/article/:title'">
+      <div class="baseStyle">
+        <ArticleItem></ArticleItem>
+        123
+      </div>
+    </div>
   </div>
 </template>
 
@@ -78,20 +84,21 @@
   import Category from "../../../views/Client/Category";
   import Statistic from "../../../views/Client/Statistic";
   import Gallery from "../../../views/Client/Gallery";
-  import Share from "../../../views/Client/Share";
+  import Bookmark from "../../../views/Client/Bookmark";
   import Message from "../../../views/Client/Message"
   import Profile from "../../../views/Client/Profile";
+  import ArticleItem from "../../../views/Client/ArticleItem";
   import Banner from "../Content/Banner/Banner";
   import HotTags from "../Content/HotTags";
   import GalleryBanner from "../Content/Banner/GalleryBanner";
-  import ShareBanner from "../Content/Banner/ShareBanner";
+  import BookmarkBanner from "../Content/Banner/BookmarkBanner";
   import ProfileBanner from "../Content/Banner/ProfileBanner";
   import MessageBanner from "../Content/Banner/MessageBanner";
   export default {
     name: "Main",
     components:{
-      Article,Category,Statistic,Gallery,Share,Message,Profile,Banner,HotTags,
-      GalleryBanner,ShareBanner,MessageBanner,ProfileBanner
+      Article,Category,Statistic,Gallery,Bookmark,Message,Profile,Banner,HotTags,
+      GalleryBanner,BookmarkBanner,MessageBanner,ProfileBanner,ArticleItem
     }
   }
 </script>

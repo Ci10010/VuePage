@@ -13,11 +13,13 @@ const routes = [
   {
     path: '/',
     component: () => import('../views/Client/Index'),
+    meta:{keepAlive: true},
     redirect: '/index',
     children:[
       {
       path: '/index',
-      component: () => import('../components/Client/Content/Article')
+      component: () => import('../components/Client/Content/Article'),
+      meta:{keepAlive: true},
       },
       {
       path: '/statistic',
@@ -32,8 +34,8 @@ const routes = [
         component: () => import('../views/Client/Gallery')
       },
       {
-        path: '/share',
-        component: () => import('../views/Client/Share')
+        path: '/bookmark',
+        component: () => import('../views/Client/Bookmark')
       },
       {
       path: '/message',
@@ -43,10 +45,20 @@ const routes = [
       path: '/profile',
       component: () => import('../views/Client/Profile')
       },
-      {
-      path: '/label',
-      component: () => import('../views/Client/Label')
-      }
+      // {
+      //   path: '/article',
+      //   component: () => import('../components/sub'),
+      //   children: [
+      //     {
+      //       path: '/article/:title',
+      //       component: () => import('../views/Client/ArticleItem')
+      //     }
+      //   ]
+      // }
+      // {
+      // path: '/article/:title',
+      // component: () => import('../views/Client/ArticleItem')
+      // }
     ]
   },
   {
@@ -79,12 +91,18 @@ const routes = [
       {
         path: '/admin/post',
         name: 'Post',
-        component: () => import('../views/Admin/Post')
+        component: () => import('../views/Admin/Post'),
+        meta:{
+          keepAlive: true
+        }
       },
       {
         path: '/admin/articles',
         name: 'ArticlesAdmin',
-        component: () => import('../views/Admin/ArticlesAdmin')
+        component: () => import('../views/Admin/ArticlesAdmin'),
+        meta:{
+          keepAlive: true
+        }
       }
     ]
   }

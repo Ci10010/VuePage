@@ -31,11 +31,51 @@ strong{
   font-weight: 600;
   color: #333333;
 }
-
-/*RouterActive*/
-.RouterActive{
-  color: #333333 !important;
+/* Highlight */
+.hljs{
+  border-radius: 3px;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  background-color: #282a36 !important;
+  font-size: 13px;
+  font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
 }
+code{
+  /*color: #ff79c6 !important;*/
+}
+/* hljs-comment描述 */
+.hljs-comment{
+}
+/* hljs-quote引用 */
+.hljs-quote {
+  /*color: #6272a4 !important;*/
+}
+/*hljs-string字符串 */
+.hljs-string{
+  /*color: #f1fa8c !important;*/
+}
+/*hljs-attribute属性 */
+.hljs-attribute{
+  /*color: #50fa7b !important;*/
+}
+/*hljs-addition增加物*/
+.hljs-addition{
+  /*color: #bd93f9 !important;*/
+}
+/* hljs-keyword关键字 */
+.hljs-keyword{
+  /*color: #8be9fd !important;*/
+}
+/* hljs-selector-tag */
+.hljs-selector-tag{
+
+}
+/* hljs-deletion删除部分 */
+.hljs-deletion{
+
+}
+/*RouterActive*/
+
 /*Scrollbar*/
 ::-webkit-scrollbar {
   width: .25rem;

@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3>留言(Message)</h3>
+    <span class="tip-span">若留言未加载成功,请 <a href="/message" class="tip-a">刷新一下</a></span>
     <div id="valine"></div>
   </div>
 </template>
@@ -29,5 +30,14 @@
 <style scoped>
   #valine{
     margin-top: 15px;
+  }
+  .tip-span{
+    color: #909399;
+    font-size: 12px;
+    position: relative;
+    top: 5px;
+  }
+  .tip-a{
+    color: #666666;
   }
 </style>

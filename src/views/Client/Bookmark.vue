@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>分享(Share)</h3>
+    <h3>书签(Bookark)</h3>
     <div id="share">
       <div class="item" v-for="(item,index) in share">
         <img alt="" :src="item.src"/>

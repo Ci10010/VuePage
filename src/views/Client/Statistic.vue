@@ -1,47 +1,63 @@
 <template>
-  <div>
-    <h2>{{ year }}</h2>
-    <div class="timeline">
-      <span class="time">{{ time }}</span>
-      <a class="title" :href="href">{{ title }}</a>
-    </div>
+  <div class="block">
+    <el-timeline>
+      <div v-for="(item,index) in items" :key="index">
+        <el-timeline-item :timestamp="item.CreateTime" placement="top">
+          <el-card>
+            <h3>{{ item.Title }}</h3>
+<!--            <p>{{ item.content }}</p>-->
+            <div class="label">
+              <i class="fa fa-folder" aria-hidden="true"></i>
+              <span v-for="(category,index) in item.Categories">{{ category }}</span>
+            </div>
+            <div class="label">
+              <i class="fa fa-tags" aria-hidden="true"></i>
+              <span v-for="(tag,index) in item.Tags">{{ tag }}</span>
+            </div>
+          </el-card>
+        </el-timeline-item>
+      </div>
+    </el-timeline>
   </div>
 </template>
 
 <script>
+  import {request} from "../../network/request";
   export default {
     name: "Statistic",
     data(){
       return{
-        year: '2020',
-        time: '2020-04-20',
-        title: 'Vue之组件通信',
-        href: ''
+        items:[]
       }
+    },
+    mounted() {
+      request({
+        url: '/api/getContent',
+        // method: 'get'
+      }).then(result=>{
+        this.items = result.data.result;
+      }).catch(error=>{
+        console.log(error);
+      })
     }
   }
 </script>
 
 <style scoped lang="less">
-  .timeline{
-    border-left: 1px solid rgb(219,219,219);
+  h4{
+    color: #606266;
+    font-weight: 600
+  }
+  .label{
     margin-top: 5px;
-    margin-left: 20px;
-    padding: 10px 10px 10px 20px;
-    /*border: 1px solid slateblue;*/
-    span,a{
-      padding-right: 15px;
+    i{
+      color: #999999;
+      margin-right: 5px;
+      font-size: 13px;
     }
-    .time{
-      color: #4a4a4a ;
-      font-size: 15px;
-      font-weight: 500;
-    }
-    .title{
-      font-weight: 700;
-      font-size: 1rem;
-      color: #3eaf7c;
-      text-decoration: none;
+    span{
+      color: #606266;
+      font-size: 13px;
     }
   }
 </style>

@@ -196,9 +196,23 @@
         this.isShow = false;
       },
       Publish(){
-        this.$message({
-          message: '发布成功！',
-          type: 'success'
+        request({
+          url: '/api/checkRep',
+          method: 'post',
+          data:{
+            title: this.title,
+            categories: this.categories,
+            tags: this.tags,
+            content: this.content
+          }
+        }).then(result=>{
+          // console.log(result.data);
+          if(result.data.status === 0){
+            return this.$message({showClose: true,type: 'success',message: '文章发布成功!'});
+          }
+          this.$message({showClose: true,type: 'warning',message: '文章发布失败!'});
+        }).catch(error=>{
+          console.log(error);
         });
         this.isShow = false;
       }

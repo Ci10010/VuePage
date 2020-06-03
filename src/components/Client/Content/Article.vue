@@ -2,7 +2,7 @@
   <div>
     <div class="article-item" v-for="(item,index) in articles" :key="index">
       <!--title-->
-      <h1 class="title"><a :href="item.Title">{{ item.Title }}</a></h1>
+      <h1 class="title"><a :href="'article/' + item.Title">{{item.Title}}</a></h1>
       <div class="label">
         <!--Time-->
         <div class="time">
@@ -11,25 +11,23 @@
         </div>
         <!--category-->
         <div class="categories">
-          <i class="fa fa-folder" aria-hidden="true"></i>
-<!--          <a :href="item.href" v-for="(category,index) in item.Categories">{{ index === item.Categories.length-1 && category || (category + ' · ') }}</a>-->
-          <a :href="item.href" v-for="(category,index) in item.Categories">{{ category }}</a>
+          <i class="fa fa-folder" aria-hidden="true" v-if="item.Categories"></i>
+          <span v-for="(category,index) in item.Categories.split(',')" v-if="item.Categories">{{ index === item.Categories.split(',').length-1 && category || (category + ' · ') }}</span>
         </div>
         <!--tags-->
         <div class="tags">
-          <i class="fa fa-tags" aria-hidden="true"></i>
-<!--          <a :href="item.href" v-for="(tag,index) in item.Tags">{{ index === item.Tags.length-1 && tag || (tag + ' · ') }}</a>-->
-          <a :href="item.href" v-for="(tag,index) in item.Tags">{{ tag }}</a>
+          <i class="fa fa-tags" aria-hidden="true" v-if="item.Tags"></i>
+          <span v-for="(tag,index) in item.Tags.split(',')" v-if="item.Tags">{{ index === item.Tags.split(',').length-1 && tag || (tag + ' · ') }}</span>
         </div>
       </div>
-      <div class="content">{{ item.Content }}</div>
+      <div class="content" v-highlight v-html="markdown2html(item.Content)"></div>
     </div>
   </div>
 </template>
 
 <script>
   import {request} from "../../../network/request";
-
+  import marked from 'marked';
   export default {
     name: "Article",
     data(){
@@ -37,16 +35,22 @@
         articles: []
       }
     },
-    created() {
+    mounted() {
       request({
         url: '/api/getContent',
         method: 'get'
       }).then(result=>{
         this.articles = result.data.result;
-        // console.log(this.articles);
+        console.log(result.data.result);
+        // let a = this.articles.map(v =>{ return v.Content});
       }).catch(error=>{
         console.log(error);
       })
+    },
+    methods:{
+      markdown2html(str){
+        return marked(str)
+      }
     }
   }
 </script>
@@ -59,7 +63,7 @@
     border-radius: 3px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     margin-bottom: 10px;
-    padding: 16px 24px 12px 24px;
+    padding: 18px 18px 3px 18px;
     border-bottom: 1px solid #f0f2f5;
     .title{
       a{
@@ -81,14 +85,10 @@
         color: #666666 !important;
         margin-right: 5px
       }
-      a{text-decoration: none;
-        color: #565a5f;
-      }
       .categories,.tags{
-        a{
-          &:hover{
-            color: #ee521c;
-          }
+        span{
+          font-size: 14px;
+          color: #5f6471;
         }
       }
       .time,.categories{display: inline-block}

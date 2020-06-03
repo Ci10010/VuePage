@@ -1,4 +1,5 @@
-.el-message>p,i{
+
+.el-message__icon,.el-message__content{
   color: #ffffff !important;
 }
 .el-message--success{
@@ -16,4 +17,7 @@
 }
 .input-new-tag{
   margin: 10px 0;
+}
+.el-timeline-item__node{
+  background-color: #2fcb53 !important;
 }

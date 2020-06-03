@@ -22,7 +22,6 @@
         method: 'get'
       }).then(result=>{
         this.tags = result.data.result;
-        console.log(this.articles);
       }).catch(error=>{
         console.log(error);
       })

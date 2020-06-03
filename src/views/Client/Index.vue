@@ -13,7 +13,7 @@
         </div>
         <div class="content">
           <!--MainContent-->
-          <Main></Main>
+          <Main v-loading="isLoading"></Main>
         </div>
       </div>
     </div>
@@ -30,6 +30,16 @@
     name: "Home",
     components:{
       Header,Widget,Main,Footer
+    },
+    data(){
+      return{
+        isLoading: true
+      }
+    },
+    created() {
+      setTimeout(() => {
+        this.isLoading = false;
+      },1500);
     }
   }
 </script>

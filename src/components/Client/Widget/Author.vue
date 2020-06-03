@@ -55,10 +55,9 @@
     // 此处发送axios请求
     created() {
       request({
-        url: '/api/SelectUserInfo',
+        url: '/api/getUserInfo',
         method: 'get'
       }).then(result=>{
-        // console.log(result.data.result[0].AvatarURL);
         this.avatar = result.data.result[0].AvatarURL;
         this.nickname = result.data.result[0].Nickname;
         this.description = result.data.result[0].Description;

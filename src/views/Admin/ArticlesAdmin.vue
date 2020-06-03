@@ -20,6 +20,7 @@
         <template slot-scope="scope">
           <el-button size="mini" @click="Edit(scope.$index, scope.row)">编辑</el-button>
           <el-button size="mini" type="danger" @click="Delete(scope.$index, scope.row)">删除</el-button>
+
         </template>
       </el-table-column>
     </el-table>
@@ -54,7 +55,6 @@
             title: row.Title
           }
         }).then(result=>{
-          console.log(result.data.message);
           this.$router.go(0)
         }).catch(error=>{
           console.log(error);
@@ -67,7 +67,6 @@
         method: 'get'
       }).then(result=>{
         this.tableData = result.data.result;
-        // console.log(this.tableData);
       }).catch(error=>{
         console.log(error);
       })
