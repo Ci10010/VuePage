@@ -197,7 +197,7 @@
       },
       Publish(){
         request({
-          url: '/api/checkRep',
+          url: '/api/post',
           method: 'post',
           data:{
             title: this.title,

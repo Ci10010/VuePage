@@ -14,15 +14,15 @@
       <div class="summary">
         <div class="articleNum">
           <p>文章</p>
-          <a href="/statistic">{{ articleNum }}</a>
+          <span>{{ articleNum }}</span>
         </div>
         <div class="articleCat">
           <p>分类</p>
-          <a href="/category">{{ articleCat }}</a>
+          <span>{{ articleCat }}</span>
         </div>
         <div class="articleLab">
           <p>标签</p>
-          <a href="/label">{{ articleLab }}</a>
+          <span>{{ articleLab }}</span>
         </div>
         <div class="icon">
           <a :href="'http://wpa.qq.com/msgrd?v=3&uin='+QQ+'&site=qq&menu=yes'"><i class="fa fa-qq" aria-hidden="true"></i></a>
@@ -124,13 +124,9 @@
             font-size: 16px;
             margin: 5px;
           }
-          a{
+          span{
             font-size: 22px;
-            text-decoration: none;
             color: #565a5f;
-            &:hover{
-              color: #000000;
-            }
           }
         }
         .icon{

@@ -1,16 +1,23 @@
 <template>
   <div>
-    <h3>留言(Message)</h3>
-    <span class="tip-span">若留言未加载成功,请 <a href="/message" class="tip-a">刷新一下</a></span>
-    <div id="valine"></div>
+    <div>
+      <MessageBanner></MessageBanner>
+    </div>
+    <div class="baseStyle">
+      <h3>留言(Message)</h3>
+      <span class="tip-span">若留言未加载成功,请 <a href="/message" class="tip-a">刷新一下</a></span>
+      <div id="valine"></div>
+    </div>
   </div>
 </template>
 
 <script>
   import Valine from "../../plugins/Valine.min";
   import AV from "../../plugins/av-min";
+  import MessageBanner from "../../components/Client/Content/Banner/MessageBanner";
   export default {
     name: "Message",
+    components: {MessageBanner},
     mounted() {
       new Valine({
         av: AV,

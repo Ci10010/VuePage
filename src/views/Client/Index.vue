@@ -1,10 +1,6 @@
 <template>
   <div>
     <Header></Header>
-    <!--MainPage-->
-<!--    <div id="headerImg">-->
-<!--      <img src="../assets/img/bg-title.png" alt=""/>-->
-<!--    </div>-->
     <div id="MainPage">
       <div class="container">
         <div class="widget">
@@ -45,17 +41,6 @@
 </script>
 
 <style scoped lang="less">
-  /*#headerImg{*/
-  /*  position: relative;*/
-  /*  display: block;*/
-  /*  !*border: 1px seagreen solid;*!*/
-  /*  width: 1360px;*/
-  /*  margin: 0 auto;*/
-  /*  img{*/
-  /*    z-index: 2;*/
-  /*    width: 100%;*/
-  /*  }*/
-  /*}*/
   #MainPage{
     position: relative;
     width: 1360px;

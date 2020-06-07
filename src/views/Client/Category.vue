@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="baseStyle">
     <h4>分类</h4>
     <div class="categories">
       <div class="category" v-for="(item,index) in categories" :key="index">

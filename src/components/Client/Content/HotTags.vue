@@ -1,19 +1,23 @@
 <template>
   <div>
     <div id="hotTags" v-for="(tag,index) in tags" :key="index">
-      <a :href="tag.Href" class="commonStyle">{{ tag.Name }}</a>
+      <span
+         class="commonStyle"
+         :style="{backgroundColor: colors[Math.round(Math.random() * (colors.length-1))]}"
+         @click="search(tag.Name)"
+      >{{ tag.Name }}</span>
     </div>
   </div>
 </template>
 
 <script>
   import {request} from "../../../network/request";
-
   export default {
     name: "HotTags",
     data(){
       return{
-        tags:[]
+        tags:[],
+        colors: ['#23d160','#ff3860','#ffdd57']
       }
     },
     created() {
@@ -25,6 +29,21 @@
       }).catch(error=>{
         console.log(error);
       })
+    },
+    methods:{
+      search(Title){
+        request({
+          url: '/api/dimSearch',
+          method: 'get',
+          params: {
+            state: Title
+          }
+        }).then(result => {
+          this.$router.push(`/result/${Title}`)
+        }).catch(error => {
+          console.log(error);
+        })
+      }
     }
   }
 </script>
@@ -32,21 +51,20 @@
 <style scoped lang="less">
   #hotTags{
     margin-bottom: 10px;
-    /*border: 1px green solid;*/
-    background-color: transparent;
     display:inline-block;
-    a{text-decoration: none; color: #fff;}
-    a:hover {color: #fff;}
+    span{
+      color: #fff;
+      &:hover{
+        cursor: pointer;
+      }
+    }
     .commonStyle{
       float: left;
-      background-color: #23d160;
       border-radius: 3px;
+      font-weight: normal;
       font-size: 12px;
       padding: 4px 7px;
       margin-right: 8px;
     }
   }
-
-
-
 </style>

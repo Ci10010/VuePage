@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="baseStyle">
     <h3>标签(Label)</h3>
   </div>
 </template>

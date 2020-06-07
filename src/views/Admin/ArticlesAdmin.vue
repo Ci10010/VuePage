@@ -18,12 +18,20 @@
       </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button size="mini" @click="Edit(scope.$index, scope.row)">编辑</el-button>
-          <el-button size="mini" type="danger" @click="Delete(scope.$index, scope.row)">删除</el-button>
-
+          <el-button size="mini" type="success" @click="Edit(scope.$index, scope.row)" icon="el-icon-edit">编辑</el-button>
+          <el-button size="mini" type="danger" @click="Delete(scope.$index, scope.row)" icon="el-icon-delete">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination
+            class="pagination"
+            @current-change="handleCurrentChange"
+            :current-page.sync="CurrentPage"
+            :page-size="PageSize"
+            layout="prev, pager, next, total"
+            :total="parseInt(Total)"
+    >
+    </el-pagination>
   </div>
 </template>
 
@@ -34,8 +42,11 @@
     data() {
       return {
         tableData: [],
-        isShow: 'true',
-        loading: true
+        isShow: 'false',
+        loading: true,
+        PageSize: 10,
+        CurrentPage: 1,
+        Total: ''
       }
     },
     mounted() {
@@ -44,9 +55,10 @@
       }, 1500);
     },
     methods: {
-      Edit() {
-
+      transform(date){
+        return date.substring(0,10);
       },
+      Edit() {},
       Delete(index, row){
         request({
           url: '/api/delArticle',
@@ -59,14 +71,43 @@
         }).catch(error=>{
           console.log(error);
         })
+      },
+      handleCurrentChange(CurrentPage) {
+        request({
+          url: '/api/getContent',
+          method: 'get',
+          params:{
+            // 当前页
+            CurrentPage: CurrentPage,
+            // 每页条数
+            PageSize: this.PageSize
+          }
+        }).then(result=>{
+          this.tableData = result.data.result;
+        }).catch(error=>{
+          console.log(error);
+        })
       }
     },
     created() {
       request({
         url: '/api/getContent',
-        method: 'get'
+        method: 'get',
+        params:{
+          PageSize: this.PageSize,
+          CurrentPage : this.CurrentPage
+        }
       }).then(result=>{
         this.tableData = result.data.result;
+      }).catch(error=>{
+        console.log(error);
+      })
+      // 获取数据总数
+      request({
+        url: '/api/getTotal',
+        method: 'get'
+      }).then(result=>{
+        this.Total = result.data.result.length;
       }).catch(error=>{
         console.log(error);
       })
@@ -77,5 +118,13 @@
 <style scoped lang="less">
   #articleAdmin{
     padding: 40px;
+  }
+  .pagination{
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+    background: transparent;
+    margin-top: 20px;
   }
 </style>

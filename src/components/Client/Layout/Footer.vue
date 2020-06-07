@@ -2,7 +2,7 @@
   <div id="footer">
     <div class="footerInfo">
       <a href="http://beian.miit.gov.cn/" target="_blank">陕ICP备20002866号</a><br>
-      <p>Copyright © 2020 <a href="https://www.geekinns.cn">GeekInns</a> All Rights Reserved</p>
+      <p>Copyright © 2020 <a href="https://www.leeio.cn">Leeio.cn</a> All Rights Reserved</p>
     </div>
   </div>
 </template>
@@ -28,6 +28,7 @@
       a,p{
         text-decoration: none;
         color: #2c3e50;
+        font-weight: normal;
       }
     }
   }

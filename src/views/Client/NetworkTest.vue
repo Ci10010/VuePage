@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="baseStyle">
     <button @click="axios">发送网络请求</button>
   </div>
 </template>

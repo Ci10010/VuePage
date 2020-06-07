@@ -4,22 +4,21 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'Index',
-  //   component: () => import('../views/Index'),
-  //   redirect: '/index',
-  // },
   {
     path: '/',
     component: () => import('../views/Client/Index'),
-    meta:{keepAlive: true},
-    redirect: '/index',
     children:[
       {
-      path: '/index',
+      path: '',
       component: () => import('../components/Client/Content/Article'),
-      meta:{keepAlive: true},
+      },
+      {
+        path: '/article/:title',
+        component:() => import('../components/Client/Content/ArticleItem')
+      },
+      {
+        path: '/result/:title',
+        component:() => import('../components/Client/Content/SearchResult')
       },
       {
       path: '/statistic',
@@ -45,26 +44,7 @@ const routes = [
       path: '/profile',
       component: () => import('../views/Client/Profile')
       },
-      // {
-      //   path: '/article',
-      //   component: () => import('../components/sub'),
-      //   children: [
-      //     {
-      //       path: '/article/:title',
-      //       component: () => import('../views/Client/ArticleItem')
-      //     }
-      //   ]
-      // }
-      // {
-      // path: '/article/:title',
-      // component: () => import('../views/Client/ArticleItem')
-      // }
     ]
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import('../views/Client/Login')
   },
   {
     path: '/regist',
@@ -78,13 +58,17 @@ const routes = [
   },
   //  Admin
   {
+    path: '/admin',
+    name: 'Login',
+    component: () => import('../views/Client/Login')
+  },
+  {
     path: '/admin/index',
     name: 'Admin',
     component: () => import('../views/Admin/Index'),
-    redirect: '/admin/statistic',
     children: [
       {
-        path: '/admin/statistic',
+        path: '',
         name: 'Statistic',
         component: () => import('../views/Admin/Statistic')
       },

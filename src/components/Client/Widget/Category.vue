@@ -3,26 +3,31 @@
     <h4>分类专栏</h4>
     <div class="content">
       <a :href="category.href" v-for="(category,index) in categories">
-        <span>{{ category.name }}</span>
-        <span class="counter">{{ category.counter }}</span>
+        <span>{{ category }}</span>
+<!--        <span class="counter">{{ category.counter }}</span>-->
       </a>
     </div>
   </div>
 </template>
 
 <script>
+  import {request} from "../../../network/request";
   export default {
     name: "Category",
     data(){
       return{
-        categories:[
-          {name: 'Git',href: '',counter: '21'},
-          {name: 'HTML',href: '',counter: '22'},
-          {name: 'MarkDown',href: '',counter: '12'},
-          {name: 'MySQL',href: '',counter: '7'},
-          {name: 'Linux',href: '',counter: '9'}
-        ]
+        categories:[]
       }
+    },
+    mounted() {
+      request({
+        url: '/api/category',
+        method: 'get'
+      }).then(result => {
+        this.categories = result.data.Categories;
+      }).catch(error => {
+        console.log(error)
+      })
     }
   }
 </script>
